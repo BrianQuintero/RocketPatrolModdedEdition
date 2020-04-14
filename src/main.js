@@ -4,4 +4,7 @@ let config = {
     height: 480,
     scene: [Menu, Play]
 }
+//main game object
 let game = new Phaser.Game(config);
+//reserve keypress vars
+let keyF, keyRIGHT, keyLEFT;
