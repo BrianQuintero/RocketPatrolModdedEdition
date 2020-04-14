@@ -59,7 +59,7 @@ class Play extends Phaser.Scene{
         this.gameOver = false;
         //60 second clock
         scoreConfig.fixedWidth = 0;
-        this.clock = this.time.delayedCall(400, () => {
+        this.clock = this.time.delayedCall(60000, () => {
             this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
             this.add.text(game.config.width/2, game.config.height/2 + 64, '(F)ire to restart', scoreConfig).setOrigin(0.5);
             this.gameOver = true;
@@ -112,6 +112,7 @@ class Play extends Phaser.Scene{
             boom.destroy();                     // remove explosion sprite
         });       
         this.p1Score += ship.points;
-        this.scoreLeft.text = this.p1Score;     
+        this.scoreLeft.text = this.p1Score;   
+        this.sound.play('sfx_explosion');  
     }
 }
