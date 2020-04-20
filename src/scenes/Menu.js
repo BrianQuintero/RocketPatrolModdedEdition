@@ -32,13 +32,14 @@ class Menu extends Phaser.Scene{
         this.add.text(centerX, centerY, 'Use the ←→ keys to move & (F) to fire', menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = '#00FF00';
         menuConfig.color = '#000';
-        this.add.text(centerX, centerY + textSpacer, 'Press ← for easy, press → for hard', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer, 'Press ← for 1P, press → for 2P', menuConfig).setOrigin(0.5);
 
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     }
     update(){
         //easy mode
+        
         if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
             game.settings = {
                 spaceshipSpeed: 3,
@@ -49,11 +50,11 @@ class Menu extends Phaser.Scene{
         }
         if(Phaser.Input.Keyboard.JustDown(keyRIGHT)){
             game.settings = {
-                spaceshipSpeed: 4,
-                gameTimer: 45000
+                spaceshipSpeed: 3,
+                gameTimer: 60000
             }
             this.sound.play('sfx_select');
-            this.scene.start("playScene");
+            this.scene.start("playScene2P");
         }
     }
 }

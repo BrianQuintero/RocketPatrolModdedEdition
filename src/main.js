@@ -2,7 +2,7 @@ let config = {
     type: Phaser.CANVAS,
     width: 640,
     height: 480,
-    scene: [Menu, Play]
+    scene: [Menu, Play, Play2P]
 }
 //main game object
 let game = new Phaser.Game(config);
@@ -11,4 +11,4 @@ game.settings = {
     gameTimer: 60000
 }
 //reserve keypress vars
-let keyF, keyRIGHT, keyLEFT;
+let keyF, keyRIGHT, keyLEFT, keyUP, keyA, keyD, keyW;
