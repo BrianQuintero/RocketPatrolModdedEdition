@@ -12,6 +12,7 @@ class Play extends Phaser.Scene{
         this.load.image('rocket','./assets/rocket.png');
         this.load.image('spaceship', './assets/spaceship.png');
         this.load.image('starfield','./assets/starfield.png');
+        this.load.image('newShip', './assets/newShip.png');
         //load spritesheet
         this.load.spritesheet('explosion', './assets/explosion.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});    }
 
@@ -90,6 +91,7 @@ class Play extends Phaser.Scene{
             this.ship01.update();
             this.ship02.update();
             this.ship03.update();
+            this.sonicShip.update();
         }
         //collision detection
         if(this.checkCollision(this.p1Rocket, this.ship03)){
@@ -103,6 +105,10 @@ class Play extends Phaser.Scene{
         if(this.checkCollision(this.p1Rocket, this.ship01)){
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
+        }
+        if(this.checkCollision(this.p1Rocket, this.sonicShip)){
+            this.p1Rocket.reset();
+            this.shipExplode(this.sonicShip);
         }
     }
 
